@@ -33,8 +33,9 @@ public class CompletionBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //change the completion bar value based on the absolute value of player Y position
-        currentCompletion = Math.Abs(GameObject.FindGameObjectWithTag("Player").transform.position.y);
-        completionBar.value = currentCompletion;
+        if (GameObject.FindGameObjectWithTag("Player") != null) {
+            currentCompletion = Math.Abs(GameObject.FindGameObjectWithTag("Player").transform.position.y);
+            completionBar.value = currentCompletion;
+        }
     }
 }

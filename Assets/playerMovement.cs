@@ -8,6 +8,8 @@ public class playerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     private float movement;
+
+    public float lastPlayerYPos = 0f;
     [SerializeField] float defaultDrag;
     [SerializeField] float slowedDrag;
 
@@ -50,6 +52,9 @@ public class playerMovement : MonoBehaviour
         if(StaminaBar.instance.currentStamina <= 0) {
             rb.drag = defaultDrag;
         }
+
+        //set the lastPlayerYPos to the current player y position
+        lastPlayerYPos = transform.position.y;
     }
 
 

@@ -12,9 +12,8 @@ public class SlidingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "Player") {
-            //MAKE BETTER PLAYER KILLING CODE LOL
-            Destroy(collision.gameObject);
-            Debug.Log("Player has been killed");
+            //get the object gamemanager and call the playerdeath function
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManage>().PlayerDeath();
             
         }
     }

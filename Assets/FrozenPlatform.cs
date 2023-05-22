@@ -8,8 +8,8 @@ public class FrozenPlatform : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            //destroy the player
-            Destroy(col.gameObject);
+            //call the playerDeath function from the GameManager
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManage>().PlayerDeath();
         }
     }
 }
