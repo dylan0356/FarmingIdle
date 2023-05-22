@@ -33,4 +33,16 @@ public class SlidingPlatform : MonoBehaviour
             transform.Translate(Vector2.right * speed * direction * Time.deltaTime);
         }
     }
+
+    private void Start() {
+        //get the shader cmaterial from current object
+        Material mat = GetComponent<Renderer>().material;
+
+        //create a new color that is R value 255 and random G and B values
+        Color surfaceInput = new Color(5, Random.Range(0, 10), Random.Range(0, 10));
+
+        //set the surfaceInput glow color to a random color where R is 255
+        mat.SetColor("_GlowColor", surfaceInput);
+
+    }
 }

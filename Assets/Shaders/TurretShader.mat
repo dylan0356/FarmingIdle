@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_2dGlow
+  m_Name: TurretShader
   m_Shader: {fileID: -6465566751694194690, guid: c3b9b50b1a863c247b5a4dfcf4c258f0, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -53,7 +53,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _GlowColor: {r: 0, g: 0.12644672, b: 1, a: 0}
+    - _GlowColor: {r: 1, g: 0.10620204, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6580247850645459788
 MonoBehaviour:

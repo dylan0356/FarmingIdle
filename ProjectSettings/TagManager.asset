@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Star
+  - GameManager
+  - LevelLight
   layers:
   - Default
   - TransparentFX

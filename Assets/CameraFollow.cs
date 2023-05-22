@@ -24,6 +24,9 @@ public class CameraFollow : MonoBehaviour
             //clamp the camera so it doesn't go out of bounds
             desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
 
+            //add the offset to the desired position
+            desiredPosition += offset;
+
             //smooth the camera movement
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
             transform.position = smoothedPosition;
