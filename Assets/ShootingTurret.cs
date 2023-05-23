@@ -37,6 +37,8 @@ public class ShootingTurret : MonoBehaviour
         //get the rigidbody2d from the bullet
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
+        SoundManager.PlaySound("turretFire");
+
         //set the velocity of the bullet to the bulletSpeed in the shootingDirection
         if (shootingDirection == "right") {
             rb.velocity = Vector2.right * bulletSpeed;

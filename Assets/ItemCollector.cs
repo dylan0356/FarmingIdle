@@ -15,7 +15,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(col.gameObject);
             numStars++;
             starText.text = "Stars: " + numStars;
-            gameOverStarText.text = "Stars: " + numStars;
+            SoundManager.PlaySound("star");
         }
     }
 }

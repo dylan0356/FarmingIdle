@@ -33,6 +33,8 @@ public class GameManage : MonoBehaviour
         //set text Completion on GameOverCanvas to PercentageCompletion text from main cavas
         percentageCompletionText.text = "Completion: " + percentageCompletionTextMainCanvas.text;
 
+        SoundManager.PlaySound("playerDeath");
+
         //set the player to inactive
         GameObject.FindGameObjectWithTag("Player").SetActive(false);
         //set the GameOverCanvas to active
