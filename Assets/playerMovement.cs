@@ -5,9 +5,11 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     // public Animator animator;
+    public Animator animator;
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
     private float movement;
+    public bool isSlow = false;
 
     public float lastPlayerYPos = 0f;
     [SerializeField] float defaultDrag;
@@ -24,6 +26,8 @@ public class playerMovement : MonoBehaviour
         //set the slowedDrag to defaultDrag + 2
         slowedDrag = defaultDrag + 2;
         Debug.Log("defaultDrag: " + defaultDrag + " slowedDrag: " + slowedDrag);
+
+        animator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -37,20 +41,26 @@ public class playerMovement : MonoBehaviour
                 //use stamina every 0.1 seconds while space is held down
                 InvokeRepeating("UseStamina", 0, 0.1f);
                 rb.drag = slowedDrag;
+                animator.SetBool("isSlow", true);
             }
             
         } else if(Input.GetKeyUp(KeyCode.Space)){
             rb.drag = defaultDrag;
+            animator.SetBool("isSlow", false);
         }
 
         //stop using stamina when space is released
         if(Input.GetKeyUp(KeyCode.Space)) {
             CancelInvoke("UseStamina");
+            animator.SetBool("isSlow", false);
+            
         }
 
         //set the drag back to defaultDrag when stamina is empty
         if(StaminaBar.instance.currentStamina <= 0) {
             rb.drag = defaultDrag;
+            animator.SetBool("isSlow", false);
+            
         }
 
         //set the lastPlayerYPos to the current player y position
